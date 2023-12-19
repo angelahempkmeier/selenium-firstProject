@@ -8,6 +8,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.time.Duration;
+
 @DisplayName("Automation Test Button 'Quero ser Dog Walker'")
 public class HomeButtonTests {
 
@@ -18,6 +20,7 @@ public class HomeButtonTests {
         WebDriverManager.chromedriver().setup();
         WebDriver browser = new ChromeDriver();
         browser.get("https://walkdog.vercel.app/");
+        browser.manage().timeouts().implicitlyWait(Duration.ofSeconds(6));
 
         //Click on button with anchore a (the unique in this page)
         browser.findElement(By.tagName("a")).click();
@@ -25,6 +28,9 @@ public class HomeButtonTests {
         //Validation
         String url = browser.getCurrentUrl();
         Assertions.assertEquals("https://walkdog.vercel.app/signup", url);
+
+        browser.quit();
+
 
     }
 }

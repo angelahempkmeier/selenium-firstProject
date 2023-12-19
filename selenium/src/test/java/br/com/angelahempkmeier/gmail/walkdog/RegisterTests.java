@@ -16,5 +16,6 @@ public class RegisterTests {
         WebDriver browser = new ChromeDriver();
         browser.get("https://walkdog.vercel.app/signup");
 
+        browser.quit();
     }
 }
