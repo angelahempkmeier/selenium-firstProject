@@ -1,6 +1,7 @@
 package br.com.angelahempkmeier.gmail.walkdog;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -20,6 +21,10 @@ public class HomeButtonTests {
 
         //Click on button with anchore a (the unique in this page)
         browser.findElement(By.tagName("a")).click();
+
+        //Validation
+        String url = browser.getCurrentUrl();
+        Assertions.assertEquals("https://walkdog.vercel.app/signup", url);
 
     }
 }
